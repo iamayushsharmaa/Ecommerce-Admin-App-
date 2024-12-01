@@ -39,12 +39,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.adminblinkitclone.R
+import com.example.adminblinkitclone.data.Category
 import kotlinx.coroutines.delay
 
 private val TOP_BAR_HEIGHT = 220.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CollapsingTopBar(lazyListState: LazyListState) {
+
+
+
 
     val searchText = remember { mutableStateOf("") }
     val isCollapsed by remember {

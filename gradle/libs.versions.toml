@@ -18,6 +18,7 @@ firebaseAuthKtx = "23.1.0"
 firebaseFirestoreKtx = "25.1.1"
 firebaseBom = "33.2.0"
 navigationComposeVersion = "2.8.4"
+playServicesVersion = "17.0.0"
 runtimeLivedata = "1.7.5"
 firebaseFirestore = "25.1.1"
 
@@ -25,6 +26,7 @@ firebaseFirestore = "25.1.1"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-compose-v284 = { module = "androidx.navigation:navigation-compose", version.ref = "navigationComposeVersion" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+gms-play-services = { module = "com.google.android.gms:play-services", version.ref = "playServicesVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
