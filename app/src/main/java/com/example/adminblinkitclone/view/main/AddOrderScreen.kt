@@ -39,14 +39,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.adminblinkitclone.data.ProductItems
-import com.example.adminblinkitclone.objects.Constants
+import com.example.adminblinkitclone.utils.Constants
+import com.example.adminblinkitclone.utils.Utils
 import com.example.adminblinkitclone.viewmodel.FirestoreViewModel
 import com.example.adminblinkitclone.viewmodel.ImagePickerViewModel
-import com.google.firebase.firestore.FirebaseFirestore
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddOrderScreen(firestoreViewModel: FirestoreViewModel, firestore: FirebaseFirestore) {
+fun AddOrderScreen(firestoreViewModel: FirestoreViewModel) {
 
     val imagePickerViewModel = ImagePickerViewModel()
 
@@ -261,6 +261,7 @@ fun AddOrderScreen(firestoreViewModel: FirestoreViewModel, firestore: FirebaseFi
                         !isProductTypeInvalid && !isImageUriListInvalid
                     ) {
                         val productItem = ProductItems(
+                            adminUid = Utils.getRandomId(),
                             productTitle = productTitle,
                             quantityInKg = quantityInKg,
                             priceInRs = price,
@@ -268,9 +269,10 @@ fun AddOrderScreen(firestoreViewModel: FirestoreViewModel, firestore: FirebaseFi
                             noOfStocks = noOfStocks,
                             productCategory = productCategory,
                             productType = productType,
-                            productImages = imageUriList
+                            productImages = imageUriList,
+                            productRating = 4.5f
                         )
-                            firestoreViewModel.addProduct(productItem, firestore,activity)
+                        firestoreViewModel.addProduct(productItem,activity)
 
                     } else{
                         Toast.makeText(activity, "Please fill all the information.", Toast.LENGTH_SHORT).show()

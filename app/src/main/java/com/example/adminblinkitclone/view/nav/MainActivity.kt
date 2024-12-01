@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.example.adminblinkitclone.ui.theme.AdminBlinkitCloneTheme
 import com.example.adminblinkitclone.viewmodel.FirebaseViewModel
 import com.example.adminblinkitclone.viewmodel.FirestoreViewModel
+import com.example.adminblinkitclone.viewmodel.SaveCategoryViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -27,8 +28,10 @@ class MainActivity : ComponentActivity() {
                 auth = FirebaseAuth.getInstance()
                 val firebaseViewModel: FirebaseViewModel by viewModels()
                 val firestoreViewModel: FirestoreViewModel by viewModels()
+                val savecategoryViewModel : SaveCategoryViewModel by viewModels()
+
                 val isUserLogin = auth.currentUser != null
-                NavigationScreen(firebaseViewModel, isUserLogin, firestore,firestoreViewModel)
+                NavigationScreen(firebaseViewModel, isUserLogin, firestore,firestoreViewModel,savecategoryViewModel)
             }
         }
     }

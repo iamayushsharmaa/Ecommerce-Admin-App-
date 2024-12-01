@@ -1,4 +1,6 @@
-package com.example.adminblinkitclone.objects
+package com.example.adminblinkitclone.utils
+
+import com.example.adminblinkitclone.R
 
 object Constants {
 
@@ -45,6 +47,40 @@ object Constants {
         "Frozen Foods",
         "Baby Products",
         "Health Supplements"
+    )
+
+    val allProductCategoryIcon = arrayOf(
+        R.drawable.amulic1,
+        R.drawable.ashir2,
+        R.drawable.attta2,
+        R.drawable.chili1,
+        R.drawable.chili2,
+        R.drawable.corneto1,
+        R.drawable.corneto2,
+        R.drawable.corneto3,
+        R.drawable.dawat,
+        R.drawable.dawat1,
+        R.drawable.dawat2,
+        R.drawable.homi1,
+        R.drawable.homi2,
+        R.drawable.homi3,
+        R.drawable.homi4,
+        R.drawable.ice1,
+        R.drawable.ice2,
+        R.drawable.ice3,
+        R.drawable.magggi1,
+        R.drawable.magggi4,
+        R.drawable.mahi1,
+        R.drawable.mahi2,
+        R.drawable.mangoes1,
+        R.drawable.mangoes2,
+        R.drawable.mangoes3,
+        R.drawable.phonepay,
+        R.drawable.topramen,
+        R.drawable.topramen1,
+        R.drawable.yippee1,
+        R.drawable.yippee3,
+        R.drawable.yippee2,
     )
 
 }

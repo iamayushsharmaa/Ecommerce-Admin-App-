@@ -11,6 +11,7 @@ import com.example.adminblinkitclone.view.login.PhoneSignIn
 import com.example.adminblinkitclone.view.main.MainScreen
 import com.example.adminblinkitclone.viewmodel.FirebaseViewModel
 import com.example.adminblinkitclone.viewmodel.FirestoreViewModel
+import com.example.adminblinkitclone.viewmodel.SaveCategoryViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -20,7 +21,8 @@ fun NavigationScreen(
     firebaseViewModel: FirebaseViewModel,
     isUserLogin: Boolean,
     firestore: FirebaseFirestore,
-    firestoreViewModel: FirestoreViewModel
+    firestoreViewModel: FirestoreViewModel,
+    savecategoryViewModel: SaveCategoryViewModel
 ) {
 
     val navController = rememberNavController()
@@ -46,7 +48,7 @@ fun NavigationScreen(
             }
         }
         composable("mainScreen") {
-            MainScreen(navController,firestoreViewModel,firestore)
+            MainScreen(navController,firestoreViewModel,savecategoryViewModel)
         }
 
     }

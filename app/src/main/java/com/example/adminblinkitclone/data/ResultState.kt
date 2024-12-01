@@ -1,5 +1,11 @@
 package com.example.adminblinkitclone.data
 
+sealed class ProductsUiState {
+    object Loading : ProductsUiState()
+    data class Success(val products: List<ProductItems>) : ProductsUiState()
+    data class Error(val message: String) : ProductsUiState()
+}
+
 sealed class ResultState<out T> {
     object Idle : ResultState<Nothing>() // Represents an idle or initial state
     object Loading : ResultState<Nothing>() // Represents a loading state

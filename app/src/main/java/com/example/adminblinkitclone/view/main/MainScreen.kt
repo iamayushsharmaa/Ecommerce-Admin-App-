@@ -14,8 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.adminblinkitclone.data.BottomNavItem
-import com.example.adminblinkitclone.viewmodel.FirebaseViewModel
 import com.example.adminblinkitclone.viewmodel.FirestoreViewModel
+import com.example.adminblinkitclone.viewmodel.SaveCategoryViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -23,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 fun MainScreen(
     navController: NavHostController,
     firestoreViewModel: FirestoreViewModel,
-    firestore: FirebaseFirestore,
+    savecategoryViewModel: SaveCategoryViewModel,
     ) {
     var selectedRoute  by remember{ mutableStateOf(BottomNavItem.Home.route) }
 
@@ -38,8 +38,8 @@ fun MainScreen(
         content = { innerPadding->
             Box(modifier = Modifier.padding(innerPadding)) {
                 when (selectedRoute) {
-                    BottomNavItem.Home.route -> HomeScreen(navController)
-                    BottomNavItem.Add.route -> AddOrderScreen(firestoreViewModel,firestore)
+                    BottomNavItem.Home.route -> HomeScreen(navController,savecategoryViewModel,firestoreViewModel)
+                    BottomNavItem.Add.route -> AddOrderScreen(firestoreViewModel)
                     BottomNavItem.Profile.route -> SettingScreen()
                 }
             }
