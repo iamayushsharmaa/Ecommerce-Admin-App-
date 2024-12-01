@@ -29,14 +29,12 @@ class FirestoreViewModel @Inject constructor(
     init {
         getProductData()
     }
-
     fun addProduct(productItems: ProductItems, context: Context) {
         viewModelScope.launch {
             firestoreRepository.addProduct(productItems,context)
             Log.d("ass", "product added succefully")
         }
     }
-
     fun getProductData(){
         viewModelScope.launch{
             firestoreRepository.getProducts()
@@ -52,7 +50,6 @@ class FirestoreViewModel @Inject constructor(
                     Log.d("getdata", "success data fetching ${products} ")
                 }
         }
-
     }
 
 }

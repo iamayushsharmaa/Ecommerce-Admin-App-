@@ -44,33 +44,25 @@ class FirestoreRepositoryImpl  @Inject constructor(
     override suspend fun deleteProduct(productItems: ProductItems): Boolean {
         TODO("Not yet implemented")
     }
-
     override suspend fun getProducts(): Flow<List<ProductItems>> = callbackFlow {
         val listenerRegistration = firestore.collection("Products").addSnapshotListener { snapshot, error ->
             try {
-                // Check if an error occurred during the snapshot listener
                 if (error != null) {
                     Log.d("tag", "getProducts: error ${error.message}")
                     trySend(emptyList()) // Send empty list if there's an error
                     return@addSnapshotListener
                 }
-
                 Log.d("tag", "getProducts: 1")
-
-                // Safely parse the products list from the snapshot
                 val products = snapshot?.toObjects(ProductItems::class.java) ?: emptyList()
                 trySend(products) // Send the fetched products
                 Log.d("tag", "getProducts: successfully")
             } catch (e: Exception) {
-                // Handle any exceptions that occur during the snapshot listener execution
                 Log.d("tag", "getProducts: exception ${e.message}")
                 trySend(emptyList()) // Send empty list in case of exception
             }
         }
-
-        // Cleanup listener when the flow is closed or canceled
         awaitClose {
-            listenerRegistration.remove() // Cancel the listener to avoid memory leak
+            listenerRegistration.remove()
         }
     }
 
